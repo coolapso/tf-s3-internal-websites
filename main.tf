@@ -82,6 +82,8 @@ resource "aws_security_group_rule" "egress" {
 }
 
 // Create the wildcard ACM certificate
+// To use ACM you need to use a Public DNS zone that resolves to internal IPs, 
+// If you want to keep everything private, you can use a private DNS zone and create a private certificate. 
 module "acm" {
   source  = "terraform-aws-modules/acm/aws"
   version = "~> 4.0"
